@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+                <html lang="en">
+                    <head>
+                        <meta charset="utf-8">
+                        <title>Fontbakery Check Report</title>
+                        <style>
+                            
+            html {
+                font-family: sans-serif;
+            }
+
+            h2 {
+                margin-top: 2em;
+            }
+
+            h3 {
+                margin-bottom: 1px;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 0.5em
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            tr {
+                text-align: left;
+            }
+
+            ul {
+                margin-top: 0;
+            }
+
+            .details_item {
+                list-style: none;
+                display: flex;
+                align-items: baseline;
+            }
+
+            .details_indicator {
+                flex: 0 0 5em;
+                font-weight: bold;
+                padding-right: 0.5em;
+                text-align: right;
+            }
+
+            .details_text {
+                flex: 1 0;
+            }
+            
+                        </style>
+                    </head>
+                    <body>
+                    <h1>Fontbakery Technical Report</h1>
+<div>If you think a check is flawed or have an idea for a check, please  file an issue at <a href='https://github.com/googlefonts/fontbakery/issues'>https://github.com/googlefonts/fontbakery/issues</a> and remember to include a pointer to the repo and branch you're checking.</div>
+<h2>Summary</h2>
+            <table>
+            <tr>
+                <th>💥 ERROR</th>
+                <th>🔥 FAIL</th>
+                <th>⚠️ WARN</th>
+                <th>⏩ SKIP</th>
+                <th>ℹ️ INFO</th>
+                <th>✔️ PASS</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>3</td>
+                <td>11</td>
+                <td>117</td>
+                <td>8</td>
+                <td>96</td>
+            </tr>
+            <tr>
+                <td>0%</td>
+                <td>2%</td>
+                <td>6%</td>
+                <td>67%</td>
+                <td>5%</td>
+                <td>55%</td>
+            </tr>
+            </table>
+            
+<p><strong>Note:</strong> The following loglevels were omitted in this report: SKIP, INFO, PASS, DEBUG</p>
+<h2>&lt;Section: Google Fonts&gt; 🔥🔥🔥⚠️⚠️⚠️⚠️⚠️⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ℹ️ℹ️ℹ️ℹ️ℹ️ℹ️</h2>
+<h3>Check Google Fonts glyph coverage.</h3>
+<div>Check ID: &lt;FontBakeryCheck:com.google.fonts/check/glyph_coverage&gt;</div>
+
+<details><summary>🔥 <strong>fonts/NotoSerifTangut/googlefonts/ttf/NotoSerifTangut-Regular.ttf</strong></summary><div><ul><li class='details_item'><span class='details_indicator'>🔥 FAIL</span><span class='details_text'><p>Missing required codepoints:</p>
+<pre><code>- 0x00AF (MACRON)
+</code></pre>
+<p>[code: missing-codepoints]</p>
+</span></li></ul></div></details>
+<h3>Check copyright namerecords match license file.</h3>
+<div>Check ID: &lt;FontBakeryCheck:com.google.fonts/check/name/license&gt;</div>
+
+<details><summary>🔥 <strong>fonts/NotoSerifTangut/googlefonts/ttf/NotoSerifTangut-Regular.ttf</strong></summary><div><ul><li class='details_item'><span class='details_indicator'>🔥 FAIL</span><span class='details_text'><p>License file OFL.txt exists but NameID 13 (LICENSE DESCRIPTION) value on platform 3 (WINDOWS) is not specified for that. Value was: &quot;This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.&quot; Must be changed to &quot;This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL&quot; [code: wrong]</p>
+</span></li></ul></div></details>
+<h3>Description strings in the name table must not exceed 200 characters.</h3>
+<div>Check ID: &lt;FontBakeryCheck:com.google.fonts/check/name/description_max_length&gt;</div>
+
+<details><summary>⚠️ <strong>fonts/NotoSerifTangut/googlefonts/ttf/NotoSerifTangut-Regular.ttf</strong></summary><div><ul><li class='details_item'><span class='details_indicator'>⚠️ WARN</span><span class='details_text'><p>A few name table entries with ID=10 (NameID.DESCRIPTION) are longer than 200 characters. Please check whether those entries are copyright notices mistakenly stored in the description string entries by a bug in an old FontLab version. If that's the case, then such copyright notices must be removed from these entries. [code: too-long]</p>
+</span></li></ul></div></details>
+<h3>Ensure files are not too large.</h3>
+<div>Check ID: &lt;FontBakeryCheck:com.google.fonts/check/file_size&gt;</div>
+
+<details><summary>⚠️ <strong>fonts/NotoSerifTangut/googlefonts/ttf/NotoSerifTangut-Regular.ttf</strong></summary><div><ul><li class='details_item'><span class='details_indicator'>⚠️ WARN</span><span class='details_text'><p>Font file is 3.0Mb; ideally it should be less than 1.0Mb [code: large-font]</p>
+</span></li></ul></div></details>
+<h3>Glyphs are similiar to Google Fonts version?</h3>
+<div>Check ID: &lt;FontBakeryCheck:com.google.fonts/check/production_glyphs_similarity&gt;</div>
+
+<details><summary>⚠️ <strong>fonts/NotoSerifTangut/googlefonts/ttf/NotoSerifTangut-Regular.ttf</strong></summary><div><ul><li class='details_item'><span class='details_indicator'>⚠️ WARN</span><span class='details_text'><p>Following glyphs differ greatly from Google Fonts version:
+* u183E1
+* u17FEF
+* u178FB
+* u17AE9
+* u1797A
+* u17A70
+* u17B2A
+* u17C61
+* u17D9B
+* u188C0 and 4106 more.</p>
+<p>Use -F or --full-lists to disable shortening of long lists.</p>
+</span></li></ul></div></details>
+<h3>Check if the vertical metrics of a CJK family are similar to the same family hosted on Google Fonts.</h3>
+<div>Check ID: &lt;FontBakeryCheck:com.google.fonts/check/cjk_vertical_metrics_regressions&gt;</div>
+
+<details><summary>🔥 <strong>fonts/NotoSerifTangut/googlefonts/ttf/NotoSerifTangut-Regular.ttf</strong></summary><div><ul><li class='details_item'><span class='details_indicator'>🔥 FAIL</span><span class='details_text'><p>OS/2 sTypoAscender is 836 when it should be 856 [code: cjk-metric-regression]</p>
+</span></li><li class='details_item'><span class='details_indicator'>🔥 FAIL</span><span class='details_text'><p>OS/2 sTypoDescender is -146 when it should be -150 [code: cjk-metric-regression]</p>
+</span></li><li class='details_item'><span class='details_indicator'>🔥 FAIL</span><span class='details_text'><p>OS/2 usWinAscent is 836 when it should be 856 [code: cjk-metric-regression]</p>
+</span></li><li class='details_item'><span class='details_indicator'>🔥 FAIL</span><span class='details_text'><p>OS/2 usWinDescent is 146 when it should be 150 [code: cjk-metric-regression]</p>
+</span></li><li class='details_item'><span class='details_indicator'>🔥 FAIL</span><span class='details_text'><p>hhea ascent is 836 when it should be 856 [code: cjk-metric-regression]</p>
+</span></li><li class='details_item'><span class='details_indicator'>🔥 FAIL</span><span class='details_text'><p>hhea descent is -146 when it should be -150 [code: cjk-metric-regression]</p>
+</span></li></ul></div></details>
+<h3>Does the font contain less than 40 CJK characters?</h3>
+<div>Check ID: &lt;FontBakeryCheck:com.google.fonts/check/cjk_not_enough_glyphs&gt;</div>
+
+<details><summary>⚠️ <strong>fonts/NotoSerifTangut/googlefonts/ttf/NotoSerifTangut-Regular.ttf</strong></summary><div><ul><li class='details_item'><span class='details_indicator'>⚠️ WARN</span><span class='details_text'><p>There are only 18 CJK glyphs when there needs to be at least 40 in order to support the smallest CJK writing system, Hangul.
+The following CJK glyphs were found:
+['uni2FF0', 'uni2FF1', 'uni2FF2', 'uni2FF3', 'uni2FF4', 'uni2FF5', 'uni2FF6', 'uni2FF7', 'uni2FF8', 'uni2FF9', 'uni2FFA', 'uni2FFB', 'uni4E00', 'uni4F53', 'uni590F', 'uni5B8B', 'uni897F', 'uni9AD4']
+Please check that these glyphs have the correct unicodes. [code: cjk-not-enough-glyphs]</p>
+</span></li></ul></div></details>
+<h3>Ensure fonts have ScriptLangTags declared on the 'meta' table.</h3>
+<div>Check ID: &lt;FontBakeryCheck:com.google.fonts/check/meta/script_lang_tags&gt;</div>
+
+<details><summary>⚠️ <strong>fonts/NotoSerifTangut/googlefonts/ttf/NotoSerifTangut-Regular.ttf</strong></summary><div><ul><li class='details_item'><span class='details_indicator'>⚠️ WARN</span><span class='details_text'><p>This font file does not have a 'meta' table. [code: lacks-meta-table]</p>
+</span></li></ul></div></details>
+<h2>&lt;Section: Universal&gt; ⚠️⚠️⚠️⚠️⏩⏩⏩⏩⏩ℹ️ℹ️</h2>
+<h3>Check font contains no unreachable glyphs</h3>
+<div>Check ID: &lt;FontBakeryCheck:com.google.fonts/check/unreachable_glyphs&gt;</div>
+
+<details><summary>⚠️ <strong>fonts/NotoSerifTangut/googlefonts/ttf/NotoSerifTangut-Regular.ttf</strong></summary><div><ul><li class='details_item'><span class='details_indicator'>⚠️ WARN</span><span class='details_text'><p>The following glyphs could not be reached by codepoint or substitution rules:</p>
+<pre><code>- glyph1 
+
+- And glyph2
+</code></pre>
+<p>[code: unreachable-glyphs]</p>
+</span></li></ul></div></details>
+<h3>Check if each glyph has the recommended amount of contours.</h3>
+<div>Check ID: &lt;FontBakeryCheck:com.google.fonts/check/contour_count&gt;</div>
+
+<details><summary>⚠️ <strong>fonts/NotoSerifTangut/googlefonts/ttf/NotoSerifTangut-Regular.ttf</strong></summary><div><ul><li class='details_item'><span class='details_indicator'>⚠️ WARN</span><span class='details_text'><p>This check inspects the glyph outlines and detects the total number of contours in each of them. The expected values are infered from the typical ammounts of contours observed in a large collection of reference font families. The divergences listed below may simply indicate a significantly different design on some of your glyphs. On the other hand, some of these may flag actual bugs in the font such as glyphs mapped to an incorrect codepoint. Please consider reviewing the design and codepoint assignment of these to make sure they are correct.</p>
+<p>The following glyphs do not have the recommended number of contours:</p>
+<pre><code>- Glyph name: aogonek	Contours detected: 3	Expected: 2
+
+- Glyph name: Uogonek	Contours detected: 2	Expected: 1
+
+- Glyph name: uogonek	Contours detected: 2	Expected: 1
+
+- Glyph name: Uogonek	Contours detected: 2	Expected: 1
+
+- Glyph name: aogonek	Contours detected: 3	Expected: 2 
+
+- And Glyph name: uogonek	Contours detected: 2	Expected: 1
+</code></pre>
+<p>[code: contour-count]</p>
+</span></li></ul></div></details>
+<h3>Does the font contain chws and vchw features?</h3>
+<div>Check ID: &lt;FontBakeryCheck:com.google.fonts/check/cjk_chws_feature&gt;</div>
+
+<details><summary>⚠️ <strong>fonts/NotoSerifTangut/googlefonts/ttf/NotoSerifTangut-Regular.ttf</strong></summary><div><ul><li class='details_item'><span class='details_indicator'>⚠️ WARN</span><span class='details_text'><p>chws feature not found in font. Use chws_tool (https://github.com/googlefonts/chws_tool) to add it. [code: missing-chws-feature]</p>
+</span></li><li class='details_item'><span class='details_indicator'>⚠️ WARN</span><span class='details_text'><p>vchw feature not found in font. Use chws_tool (https://github.com/googlefonts/chws_tool) to add it. [code: missing-vchw-feature]</p>
+</span></li></ul></div></details>
+<h3>Ensure dotted circle glyph is present and can attach marks.</h3>
+<div>Check ID: &lt;FontBakeryCheck:com.google.fonts/check/dotted_circle&gt;</div>
+
+<details><summary>⚠️ <strong>fonts/NotoSerifTangut/googlefonts/ttf/NotoSerifTangut-Regular.ttf</strong></summary><div><ul><li class='details_item'><span class='details_indicator'>⚠️ WARN</span><span class='details_text'><p>No dotted circle glyph present [code: missing-dotted-circle]</p>
+</span></li></ul></div></details>
+<h2>&lt;Section: Outline Correctness Checks&gt; ⚠️⚠️</h2>
+<h3>Do outlines contain any jaggy segments?</h3>
+<div>Check ID: &lt;FontBakeryCheck:com.google.fonts/check/outline_jaggy_segments&gt;</div>
+
+<details><summary>⚠️ <strong>fonts/NotoSerifTangut/googlefonts/ttf/NotoSerifTangut-Regular.ttf</strong></summary><div><ul><li class='details_item'><span class='details_indicator'>⚠️ WARN</span><span class='details_text'><p>The following glyphs have jaggy segments:</p>
+<pre><code>* u17013 (U+17013): L&lt;&lt;508.0,544.0&gt;--&lt;247.0,478.0&gt;&gt;/L&lt;&lt;247.0,478.0&gt;--&lt;542.0,478.0&gt;&gt; = 14.191096549023982
+
+* u170B3 (U+170B3): L&lt;&lt;322.0,103.0&gt;--&lt;597.0,165.0&gt;&gt;/L&lt;&lt;597.0,165.0&gt;--&lt;332.0,165.0&gt;&gt; = 12.705169690097586
+
+* u170B3 (U+170B3): L&lt;&lt;742.0,161.0&gt;--&lt;421.0,81.0&gt;&gt;/L&lt;&lt;421.0,81.0&gt;--&lt;700.0,81.0&gt;&gt; = 13.994237771997035
+
+* u170F1 (U+170F1): L&lt;&lt;276.0,-26.0&gt;--&lt;276.0,381.0&gt;&gt;/B&lt;&lt;276.0,381.0&gt;-&lt;242.0,207.0&gt;-&lt;236.0,158.0&gt;&gt; = 11.056412980248197
+
+* u170F2 (U+170F2): L&lt;&lt;273.0,-34.0&gt;--&lt;273.0,384.0&gt;&gt;/B&lt;&lt;273.0,384.0&gt;-&lt;241.0,240.0&gt;-&lt;227.0,157.0&gt;&gt; = 12.528807709151492
+
+* u170F5 (U+170F5): L&lt;&lt;313.0,-75.0&gt;--&lt;313.0,447.0&gt;&gt;/B&lt;&lt;313.0,447.0&gt;-&lt;257.0,223.0&gt;-&lt;245.0,159.0&gt;&gt; = 14.036243467926484
+
+* u17105 (U+17105): B&lt;&lt;337.0,492.0&gt;-&lt;257.0,354.0&gt;-&lt;164.0,274.0&gt;&gt;/L&lt;&lt;164.0,274.0&gt;--&lt;172.0,278.0&gt;&gt; = 14.137562158980275
+
+* u17114 (U+17114): B&lt;&lt;273.0,168.0&gt;-&lt;211.0,98.0&gt;-&lt;134.0,57.0&gt;&gt;/L&lt;&lt;134.0,57.0&gt;--&lt;136.0,58.0&gt;&gt; = 1.4688007143857
+
+* u17171 (U+17171): B&lt;&lt;545.0,120.0&gt;-&lt;488.0,70.0&gt;-&lt;418.0,41.0&gt;&gt;/L&lt;&lt;418.0,41.0&gt;--&lt;429.0,45.0&gt;&gt; = 2.52042197786743
+
+* u1717D (U+1717D): B&lt;&lt;549.0,183.0&gt;-&lt;484.0,100.0&gt;-&lt;410.0,51.0&gt;&gt;/L&lt;&lt;410.0,51.0&gt;--&lt;415.0,53.0&gt;&gt; = 11.709609311488988 
+
+* And 137 more.
+</code></pre>
+<p>Use -F or --full-lists to disable shortening of long lists. [code: found-jaggy-segments]</p>
+</span></li></ul></div></details>
+<h3>Do outlines contain any semi-vertical or semi-horizontal lines?</h3>
+<div>Check ID: &lt;FontBakeryCheck:com.google.fonts/check/outline_semi_vertical&gt;</div>
+
+<details><summary>⚠️ <strong>fonts/NotoSerifTangut/googlefonts/ttf/NotoSerifTangut-Regular.ttf</strong></summary><div><ul><li class='details_item'><span class='details_indicator'>⚠️ WARN</span><span class='details_text'><p>The following glyphs have semi-vertical/semi-horizontal lines:</p>
+<pre><code>* M (U+004D): L&lt;&lt;139.0,47.0&gt;--&lt;140.0,666.0&gt;&gt;
+
+* M (U+004D): L&lt;&lt;721.0,326.0&gt;--&lt;722.0,620.0&gt;&gt;
+
+* N (U+004E): L&lt;&lt;134.0,47.0&gt;--&lt;135.0,656.0&gt;&gt;
+
+* N (U+004E): L&lt;&lt;179.0,595.0&gt;--&lt;180.0,48.0&gt;&gt;
+
+* N (U+004E): L&lt;&lt;603.0,146.0&gt;--&lt;602.0,664.0&gt;&gt;
+
+* Nacute (U+0143): L&lt;&lt;134.0,47.0&gt;--&lt;135.0,656.0&gt;&gt;
+
+* Nacute (U+0143): L&lt;&lt;179.0,595.0&gt;--&lt;180.0,48.0&gt;&gt;
+
+* Nacute (U+0143): L&lt;&lt;603.0,146.0&gt;--&lt;602.0,664.0&gt;&gt;
+
+* Ncaron (U+0147): L&lt;&lt;134.0,47.0&gt;--&lt;135.0,656.0&gt;&gt;
+
+* Ncaron (U+0147): L&lt;&lt;179.0,595.0&gt;--&lt;180.0,48.0&gt;&gt; 
+
+* And 2148 more.
+</code></pre>
+<p>Use -F or --full-lists to disable shortening of long lists. [code: found-semi-vertical]</p>
+</span></li></ul></div></details>
+                    </body>
+                </html>
