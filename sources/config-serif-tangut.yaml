@@ -1,0 +1,10 @@
+buildVariable: false
+category:
+- SERIF
+familyName: Noto Serif Tangut
+googleFonts: true
+includeSubsets:
+- from: Noto Serif
+  name: GF_Latin_Core
+sources:
+- NotoSerifTangut.glyphs
