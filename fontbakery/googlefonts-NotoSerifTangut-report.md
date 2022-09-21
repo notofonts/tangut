@@ -1,19 +1,8 @@
 ## Fontbakery report
 
-Fontbakery version: 0.8.9
+Fontbakery version: 0.8.10
 
-<details><summary><b>[14] NotoSerifTangut-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Check Google Fonts glyph coverage. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/glyph_coverage">com.google.fonts/check/glyph_coverage</a>)</summary><div>
-
-
-* 🔥 **FAIL** Missing required codepoints:
-
-	- 0x00AF (MACRON)
- [code: missing-codepoints]
-</div></details><details><summary>🔥 <b>FAIL:</b> Check copyright namerecords match license file. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/name/license">com.google.fonts/check/name/license</a>)</summary><div>
-
-
-* 🔥 **FAIL** License file OFL.txt exists but NameID 13 (LICENSE DESCRIPTION) value on platform 3 (WINDOWS) is not specified for that. Value was: "This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software." Must be changed to "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL" [code: wrong]
-</div></details><details><summary>🔥 <b>FAIL:</b> Check if the vertical metrics of a CJK family are similar to the same family hosted on Google Fonts. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/cjk_vertical_metrics_regressions">com.google.fonts/check/cjk_vertical_metrics_regressions</a>)</summary><div>
+<details><summary><b>[12] NotoSerifTangut-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Check if the vertical metrics of a CJK family are similar to the same family hosted on Google Fonts. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/cjk_vertical_metrics_regressions">com.google.fonts/check/cjk_vertical_metrics_regressions</a>)</summary><div>
 
 
 * 🔥 **FAIL**  OS/2 sTypoAscender is 836 when it should be 856 [code: cjk-metric-regression]
@@ -29,21 +18,21 @@ Fontbakery version: 0.8.9
 </div></details><details><summary>⚠ <b>WARN:</b> Ensure files are not too large. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/file_size">com.google.fonts/check/file_size</a>)</summary><div>
 
 
-* ⚠ **WARN** Font file is 3.0Mb; ideally it should be less than 1.0Mb [code: large-font]
+* ⚠ **WARN** Font file is 5.5Mb; ideally it should be less than 1.0Mb [code: large-font]
 </div></details><details><summary>⚠ <b>WARN:</b> Glyphs are similiar to Google Fonts version? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/production_glyphs_similarity">com.google.fonts/check/production_glyphs_similarity</a>)</summary><div>
 
 
 * ⚠ **WARN** Following glyphs differ greatly from Google Fonts version:
-	* u183E1
-	* u17FEF
-	* u178FB
-	* u17AE9
-	* u1797A
-	* u17A70
-	* u17B2A
-	* u17C61
-	* u17D9B
-	* u188C0 and 4106 more.
+	* .notdef
+	* u17000
+	* u17001
+	* u17004
+	* u17008
+	* u1700B
+	* u1700D
+	* u17013
+	* u17014
+	* u1701A and 4106 more.
 
 Use -F or --full-lists to disable shortening of long lists.
 </div></details><details><summary>⚠ <b>WARN:</b> Does the font contain less than 40 CJK characters? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/cjk_not_enough_glyphs">com.google.fonts/check/cjk_not_enough_glyphs</a>)</summary><div>
@@ -155,8 +144,8 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-semi-ve
 
 | 💔 ERROR | 🔥 FAIL | ⚠ WARN | 💤 SKIP | ℹ INFO | 🍞 PASS | 🔎 DEBUG |
 |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| 0 | 3 | 11 | 117 | 8 | 96 | 0 |
-| 0% | 1% | 5% | 50% | 3% | 41% | 0% |
+| 0 | 1 | 11 | 112 | 7 | 96 | 0 |
+| 0% | 0% | 5% | 49% | 3% | 42% | 0% |
 
 **Note:** The following loglevels were omitted in this report:
 * **SKIP**
