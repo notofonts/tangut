@@ -2,20 +2,7 @@
 
 Fontbakery version: 0.8.10
 
-<details><summary><b>[12] NotoSerifTangut-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Check if the vertical metrics of a CJK family are similar to the same family hosted on Google Fonts. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/cjk_vertical_metrics_regressions">com.google.fonts/check/cjk_vertical_metrics_regressions</a>)</summary><div>
-
-
-* 🔥 **FAIL**  OS/2 sTypoAscender is 836 when it should be 856 [code: cjk-metric-regression]
-* 🔥 **FAIL**  OS/2 sTypoDescender is -146 when it should be -150 [code: cjk-metric-regression]
-* 🔥 **FAIL**  OS/2 usWinAscent is 836 when it should be 856 [code: cjk-metric-regression]
-* 🔥 **FAIL**  OS/2 usWinDescent is 146 when it should be 150 [code: cjk-metric-regression]
-* 🔥 **FAIL**  hhea ascent is 836 when it should be 856 [code: cjk-metric-regression]
-* 🔥 **FAIL**  hhea descent is -146 when it should be -150 [code: cjk-metric-regression]
-</div></details><details><summary>⚠ <b>WARN:</b> Description strings in the name table must not exceed 200 characters. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/name/description_max_length">com.google.fonts/check/name/description_max_length</a>)</summary><div>
-
-
-* ⚠ **WARN** A few name table entries with ID=10 (NameID.DESCRIPTION) are longer than 200 characters. Please check whether those entries are copyright notices mistakenly stored in the description string entries by a bug in an old FontLab version. If that's the case, then such copyright notices must be removed from these entries. [code: too-long]
-</div></details><details><summary>⚠ <b>WARN:</b> Ensure files are not too large. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/file_size">com.google.fonts/check/file_size</a>)</summary><div>
+<details><summary><b>[10] NotoSerifTangut-Regular.ttf</b></summary><div><details><summary>⚠ <b>WARN:</b> Ensure files are not too large. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/file_size">com.google.fonts/check/file_size</a>)</summary><div>
 
 
 * ⚠ **WARN** Font file is 5.5Mb; ideally it should be less than 1.0Mb [code: large-font]
@@ -144,8 +131,8 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-semi-ve
 
 | 💔 ERROR | 🔥 FAIL | ⚠ WARN | 💤 SKIP | ℹ INFO | 🍞 PASS | 🔎 DEBUG |
 |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| 0 | 1 | 11 | 112 | 7 | 96 | 0 |
-| 0% | 0% | 5% | 49% | 3% | 42% | 0% |
+| 0 | 0 | 10 | 112 | 7 | 98 | 0 |
+| 0% | 0% | 4% | 49% | 3% | 43% | 0% |
 
 **Note:** The following loglevels were omitted in this report:
 * **SKIP**
