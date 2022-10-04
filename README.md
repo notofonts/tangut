@@ -1,5 +1,7 @@
 # Noto Tangut
 
+This font is designed referenced by Homophones, which the designer is Yang Xicheng, the developer and design director are Liu Zhao, the engineering is Eiso Chan, the technical support is Kushim Jiang, the design assistant is Song Peilin, and the advisers are Sun Bojun, Jia Changye, Sun Feipeng, Jerry You and Andrew Christopher West.
+
 [![][Fontbakery]](https://notofonts.github.io/tangut/fontbakery/fontbakery-report.html)
 [![][Universal]](https://notofonts.github.io/tangut/fontbakery/fontbakery-report.html)
 [![][GF Profile]](https://notofonts.github.io/tangut/fontbakery/fontbakery-report.html)
