@@ -1,11 +1,20 @@
 ## Fontbakery report
 
-Fontbakery version: 0.8.10
+Fontbakery version: 0.8.11b0
 
-<details><summary><b>[10] NotoSerifTangut-Regular.ttf</b></summary><div><details><summary>⚠ <b>WARN:</b> Ensure files are not too large. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/file_size">com.google.fonts/check/file_size</a>)</summary><div>
+<details><summary><b>[11] NotoSerifTangut-Regular.ttf</b></summary><div><details><summary>🔥 <b>FAIL:</b> Noto fonts must have an ARTICLE.en_us.html file (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/description/noto_has_article">com.google.fonts/check/description/noto_has_article</a>)</summary><div>
 
 
-* ⚠ **WARN** Font file is 5.5Mb; ideally it should be less than 1.0Mb [code: large-font]
+* 🔥 **FAIL** This is a Noto font but it lacks an ARTICLE.en_us.html file [code: missing-article]
+</div></details><details><summary>🔥 <b>FAIL:</b> Checking OS/2 usWinAscent & usWinDescent. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/family/win_ascent_and_descent">com.google.fonts/check/family/win_ascent_and_descent</a>)</summary><div>
+
+
+* 🔥 **FAIL** OS/2.usWinAscent value should be equal or greater than 979, but got 856 instead [code: ascent]
+* 🔥 **FAIL** OS/2.usWinDescent value should be equal or greater than 240, but got 150 instead. [code: descent]
+</div></details><details><summary>⚠ <b>WARN:</b> Ensure files are not too large. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/file_size">com.google.fonts/check/file_size</a>)</summary><div>
+
+
+* ⚠ **WARN** Font file is 5.4Mb; ideally it should be less than 1.0Mb [code: large-font]
 </div></details><details><summary>⚠ <b>WARN:</b> Glyphs are similiar to Google Fonts version? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/production_glyphs_similarity">com.google.fonts/check/production_glyphs_similarity</a>)</summary><div>
 
 
@@ -22,13 +31,6 @@ Fontbakery version: 0.8.10
 	* u1701A and 4106 more.
 
 Use -F or --full-lists to disable shortening of long lists.
-</div></details><details><summary>⚠ <b>WARN:</b> Does the font contain less than 40 CJK characters? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/cjk_not_enough_glyphs">com.google.fonts/check/cjk_not_enough_glyphs</a>)</summary><div>
-
-
-* ⚠ **WARN** There are only 18 CJK glyphs when there needs to be at least 40 in order to support the smallest CJK writing system, Hangul.
-The following CJK glyphs were found:
-['uni2FF0', 'uni2FF1', 'uni2FF2', 'uni2FF3', 'uni2FF4', 'uni2FF5', 'uni2FF6', 'uni2FF7', 'uni2FF8', 'uni2FF9', 'uni2FFA', 'uni2FFB', 'uni4E00', 'uni4F53', 'uni590F', 'uni5B8B', 'uni897F', 'uni9AD4']
-Please check that these glyphs have the correct unicodes. [code: cjk-not-enough-glyphs]
 </div></details><details><summary>⚠ <b>WARN:</b> Ensure fonts have ScriptLangTags declared on the 'meta' table. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/googlefonts.html#com.google.fonts/check/meta/script_lang_tags">com.google.fonts/check/meta/script_lang_tags</a>)</summary><div>
 
 
@@ -40,7 +42,7 @@ Please check that these glyphs have the correct unicodes. [code: cjk-not-enough-
 
 	- glyph1 
 
-	- And glyph2
+	- glyph2
  [code: unreachable-glyphs]
 </div></details><details><summary>⚠ <b>WARN:</b> Check if each glyph has the recommended amount of contours. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/contour_count">com.google.fonts/check/contour_count</a>)</summary><div>
 
@@ -59,17 +61,21 @@ The following glyphs do not have the recommended number of contours:
 
 	- Glyph name: aogonek	Contours detected: 3	Expected: 2 
 
-	- And Glyph name: uogonek	Contours detected: 2	Expected: 1
+	- Glyph name: uogonek	Contours detected: 2	Expected: 1
  [code: contour-count]
-</div></details><details><summary>⚠ <b>WARN:</b> Does the font contain chws and vchw features? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/cjk_chws_feature">com.google.fonts/check/cjk_chws_feature</a>)</summary><div>
-
-
-* ⚠ **WARN** chws feature not found in font. Use chws_tool (https://github.com/googlefonts/chws_tool) to add it. [code: missing-chws-feature]
-* ⚠ **WARN** vchw feature not found in font. Use chws_tool (https://github.com/googlefonts/chws_tool) to add it. [code: missing-vchw-feature]
 </div></details><details><summary>⚠ <b>WARN:</b> Ensure dotted circle glyph is present and can attach marks. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/dotted_circle">com.google.fonts/check/dotted_circle</a>)</summary><div>
 
 
 * ⚠ **WARN** No dotted circle glyph present [code: missing-dotted-circle]
+</div></details><details><summary>⚠ <b>WARN:</b> Check math signs have the same width. (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/universal.html#com.google.fonts/check/math_signs_width">com.google.fonts/check/math_signs_width</a>)</summary><div>
+
+
+* ⚠ **WARN** The most common width is 559 among a set of 6 math glyphs.
+The following math glyphs have a different width, though:
+
+Width = 310:
+minus
+ [code: width-outliers]
 </div></details><details><summary>⚠ <b>WARN:</b> Do outlines contain any jaggy segments? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Outline Correctness Checks>.html#com.google.fonts/check/outline_jaggy_segments">com.google.fonts/check/outline_jaggy_segments</a>)</summary><div>
 
 
@@ -95,7 +101,7 @@ The following glyphs do not have the recommended number of contours:
 
 	* u1717D (U+1717D): B<<549.0,183.0>-<484.0,100.0>-<410.0,51.0>>/L<<410.0,51.0>--<415.0,53.0>> = 11.709609311488988 
 
-	* And 137 more.
+	* 137 more.
 
 Use -F or --full-lists to disable shortening of long lists. [code: found-jaggy-segments]
 </div></details><details><summary>⚠ <b>WARN:</b> Do outlines contain any semi-vertical or semi-horizontal lines? (<a href="https://font-bakery.readthedocs.io/en/stable/fontbakery/profiles/<Section: Outline Correctness Checks>.html#com.google.fonts/check/outline_semi_vertical">com.google.fonts/check/outline_semi_vertical</a>)</summary><div>
@@ -103,36 +109,37 @@ Use -F or --full-lists to disable shortening of long lists. [code: found-jaggy-s
 
 * ⚠ **WARN** The following glyphs have semi-vertical/semi-horizontal lines:
 
-	* M (U+004D): L<<139.0,47.0>--<140.0,666.0>>
+	* u17000 (U+17000): L<<871.0,218.0>--<872.0,-2.0>>
 
-	* M (U+004D): L<<721.0,326.0>--<722.0,620.0>>
+	* u17004 (U+17004): L<<581.0,-1.0>--<578.0,682.0>>
 
-	* N (U+004E): L<<134.0,47.0>--<135.0,656.0>>
+	* u17004 (U+17004): L<<645.0,642.0>--<647.0,291.0>>
 
-	* N (U+004E): L<<179.0,595.0>--<180.0,48.0>>
+	* u17004 (U+17004): L<<647.0,269.0>--<648.0,14.0>>
 
-	* N (U+004E): L<<603.0,146.0>--<602.0,664.0>>
+	* u17005 (U+17005): L<<891.0,218.0>--<892.0,-2.0>>
 
-	* Nacute (U+0143): L<<134.0,47.0>--<135.0,656.0>>
+	* u17006 (U+17006): L<<871.0,202.0>--<872.0,-2.0>>
 
-	* Nacute (U+0143): L<<179.0,595.0>--<180.0,48.0>>
+	* u17007 (U+17007): L<<899.0,169.0>--<900.0,-1.0>>
 
-	* Nacute (U+0143): L<<603.0,146.0>--<602.0,664.0>>
+	* u17008 (U+17008): L<<860.0,206.0>--<861.0,-2.0>>
 
-	* Ncaron (U+0147): L<<134.0,47.0>--<135.0,656.0>>
+	* u17009 (U+17009): L<<871.0,202.0>--<872.0,-2.0>>
 
-	* Ncaron (U+0147): L<<179.0,595.0>--<180.0,48.0>> 
+	* u1700B (U+1700B): L<<886.0,223.0>--<887.0,-2.0>> 
 
-	* And 2148 more.
+	* 2089 more.
 
 Use -F or --full-lists to disable shortening of long lists. [code: found-semi-vertical]
 </div></details><br></div></details>
+
 ### Summary
 
 | 💔 ERROR | 🔥 FAIL | ⚠ WARN | 💤 SKIP | ℹ INFO | 🍞 PASS | 🔎 DEBUG |
 |:-----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| 0 | 0 | 10 | 112 | 7 | 98 | 0 |
-| 0% | 0% | 4% | 49% | 3% | 43% | 0% |
+| 0 | 2 | 9 | 117 | 7 | 105 | 0 |
+| 0% | 1% | 4% | 49% | 3% | 44% | 0% |
 
 **Note:** The following loglevels were omitted in this report:
 * **SKIP**
