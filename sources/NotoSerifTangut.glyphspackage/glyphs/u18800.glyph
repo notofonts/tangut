@@ -1,0 +1,34 @@
+{
+glyphname = u18800;
+layers = (
+{
+hints = (
+{
+horizontal = 1;
+place = (718, 30);
+type = Stem;
+}
+);
+layerId = "CB7FBE56-FAF0-4485-826E-02FDEC4040B6";
+shapes = (
+{
+closed = 1;
+nodes = (
+(797,748,l),
+(62,748,l),
+(71,718,l),
+(913,718,ls),
+(927.17,718.38,o),
+(936.17,723.72,o),
+(940,734,c),
+(847,813,l)
+);
+}
+);
+vertWidth = 976;
+width = 1000;
+}
+);
+note = u18800;
+unicode = 100352;
+}

@@ -1,0 +1,13 @@
+{
+category = Separator;
+glyphname = CR;
+layers = (
+{
+layerId = "CB7FBE56-FAF0-4485-826E-02FDEC4040B6";
+width = 260;
+}
+);
+script = "";
+subCategory = Other;
+unicode = 13;
+}

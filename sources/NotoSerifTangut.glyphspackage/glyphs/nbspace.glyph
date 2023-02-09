@@ -1,0 +1,14 @@
+{
+category = Separator;
+glyphname = nbspace;
+layers = (
+{
+layerId = "CB7FBE56-FAF0-4485-826E-02FDEC4040B6";
+width = 500;
+}
+);
+production = uni00A0;
+script = "";
+subCategory = Space;
+unicode = 160;
+}

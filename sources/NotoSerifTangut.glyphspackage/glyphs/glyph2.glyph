@@ -1,0 +1,11 @@
+{
+glyphname = glyph2;
+layers = (
+{
+layerId = "CB7FBE56-FAF0-4485-826E-02FDEC4040B6";
+vertWidth = 1000;
+width = 500;
+}
+);
+note = glyph2;
+}
