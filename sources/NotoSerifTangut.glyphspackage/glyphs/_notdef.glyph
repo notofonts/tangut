@@ -5,20 +5,20 @@ layers = (
 hints = (
 {
 horizontal = 1;
-place = (0, 33);
+place = (0,33);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (633, 33);
+place = (633,33);
 type = Stem;
 },
 {
-place = (355, 33);
+place = (355,33);
 type = Stem;
 },
 {
-place = (588, 33);
+place = (588,33);
 type = Stem;
 }
 );
@@ -47,5 +47,5 @@ vertWidth = 976;
 width = 976;
 }
 );
-note = ".notdef";
+note = .notdef;
 }

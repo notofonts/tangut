@@ -5,44 +5,44 @@ layers = (
 hints = (
 {
 horizontal = 1;
-place = (78, 30);
+place = (78,30);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (213, 30);
+place = (213,30);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (348, 30);
+place = (348,30);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (486, 30);
+place = (486,30);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (614, 30);
+place = (614,30);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (738, 30);
+place = (738,30);
 type = Stem;
 },
 {
-place = (364, 65);
+place = (364,65);
 type = Stem;
 },
 {
-place = (593, 68);
+place = (593,68);
 type = Stem;
 },
 {
-place = (555, 65);
+place = (555,65);
 type = Stem;
 }
 );

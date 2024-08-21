@@ -1,5 +1,5 @@
 {
-.appVersion = "3177";
+.appVersion = "3316";
 .formatVersion = 3;
 axes = (
 {
@@ -7246,7 +7246,6 @@ over = -15;
 pos = -146;
 },
 {
-over = -15;
 },
 {
 over = 15;
@@ -7359,6 +7358,15 @@ value = "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/t
 );
 },
 {
+key = descriptions;
+values = (
+{
+language = dflt;
+value = "See README.md in https://github.com/notofonts/tangut for credits";
+}
+);
+},
+{
 key = designers;
 values = (
 {
@@ -7366,6 +7374,19 @@ language = dflt;
 value = "YANG Xicheng";
 }
 );
+},
+{
+key = licenses;
+values = (
+{
+language = dflt;
+value = "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL";
+}
+);
+},
+{
+key = licenseURL;
+value = "https://scripts.sil.org/OFL";
 },
 {
 key = manufacturers;
@@ -7381,33 +7402,11 @@ key = manufacturerURL;
 value = "http://www.google.com/get/noto/";
 },
 {
-key = descriptions;
-values = (
-{
-language = dflt;
-value = "See README.md in https://github.com/notofonts/tangut for credits";
-}
-);
-},
-{
 key = trademarks;
 values = (
 {
 language = dflt;
 value = "Noto is a trademark of Google LLC.";
-}
-);
-},
-{
-key = licenseURL;
-value = "https://scripts.sil.org/OFL";
-},
-{
-key = licenses;
-values = (
-{
-language = dflt;
-value = "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL";
 }
 );
 },

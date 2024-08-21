@@ -4,11 +4,11 @@ layers = (
 {
 hints = (
 {
-place = (676, 69);
+place = (676,69);
 type = Stem;
 },
 {
-place = (705, 69);
+place = (705,69);
 type = Stem;
 }
 );
