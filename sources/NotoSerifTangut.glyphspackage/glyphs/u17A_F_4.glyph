@@ -5,7 +5,7 @@ layers = (
 hints = (
 {
 horizontal = 1;
-place = (-72, 90);
+place = (-72,90);
 type = Stem;
 }
 );
