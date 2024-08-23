@@ -1,5 +1,5 @@
 {
-.appVersion = "3316";
+.appVersion = "3217";
 .formatVersion = 3;
 axes = (
 {
@@ -7179,8 +7179,8 @@ familyName = "Noto Serif Tangut";
 fontMaster = (
 {
 axesValues = (
-100,
-5
+400,
+100
 );
 customParameters = (
 {
@@ -7274,7 +7274,7 @@ stemValues = (
 instances = (
 {
 axesValues = (
-100,
+400,
 100
 );
 customParameters = (
