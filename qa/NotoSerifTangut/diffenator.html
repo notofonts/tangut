@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Diffenator3</title>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+		crossorigin="anonymous"></script>
+	<style type="text/css">
+		@font-face {
+      font-family: "Font Before";
+      src: url();
+    }
+
+    @font-face {
+      font-family: "Font After";
+      src: url();
+    }
+
+    .font-before, .font-after {
+      font-variation-settings: "wght" 400, "wdth" 100;
+    }
+
+    .font-before {
+      font-family: "Font Before", "Adobe Notdef";
+    }
+
+    .font-after {
+      font-family: "Font After", "Adobe Notdef";
+    }
+
+	:root {
+	--node-pt-size: 40px;
+	}
+
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    background-color: #b3d4f5 !important;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.nav-pills .nav-item.show .nav-link, .nav-pills .nav-link.active {
+    background-color: #ced9e4 !important;
+}
+.nav-item {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 2px;
+}
+
+.nav-pills .nav-link{
+    background-color: #9fcaf5 !important;
+}
+h4 {
+    color: #6f7882 !important;
+}
+
+@font-face {
+    font-family: "Adobe NotDef";
+    src: url(https://cdn.jsdelivr.net/gh/adobe-fonts/adobe-notdef/AND-Regular.ttf);
+}
+
+.box-title {
+    width: 100%;
+    font-size: 8pt;
+    font-weight: 700;
+    border-top: 1px solid black;
+    padding-top: 5px;
+    margin-bottom: 10pt;
+    display: block;
+}
+
+.box {
+    margin-bottom: 20pt;
+    width: 100%;
+    float: left;
+}
+
+.box-text {}
+
+#ui-nav {
+    position: fixed;
+    right: 20px;
+    z-index: 100;
+}
+
+#font-toggle {}
+
+.ui-nav-item {
+    display: block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+    text-align: center;
+    color: white;
+    background-color: black;
+    display: block;
+    font-size: 14pt;
+    padding: 5px;
+    margin: 2px;
+}
+
+/* Stuff needed for the table differ */
+body {
+    font-family: Helvetica;
+}
+
+.node {
+    font-family: courier;
+    cursor: pointer;
+    position: relative;
+    left: 30px;
+    padding: 5px;
+    display: block;
+    border: 1px dashed grey;
+    background-color: #e9e9ee;
+}
+
+.header {
+    font-weight: bold;
+}
+
+.attr-before {
+    color: green;
+    cursor: text;
+}
+
+.attr-after {
+    color: red;
+    cursor: text;
+}
+
+.leaf {
+    font-weight: bold;
+}
+
+.old .cell .new {
+    display: none;
+}
+
+.new .cell .old {
+    display: none;
+}
+
+.both .cell .old {
+    opacity: 0.75;
+    color: red;
+}
+
+.both .cell .new {
+    opacity: 0.75;
+    position: absolute;
+    top: 0;
+    color: green;
+}
+
+.spacer {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+#ot-panel {
+    max-height: 400px;
+    overflow-y: scroll;
+    background: white;
+    padding: 10px;
+    display: none;
+   }
+
+   .cell{
+    z-index: -100;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 5pt;
+    margin: 5pt;
+    width: 50pt;
+    font-size: var(--node-pt-size);
+    line-height: calc(var(--node-pt-size) * 1.5);
+  }
+  .cell-word{
+    z-index: -100;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 5pt;
+    margin: 5pt;
+    font-size: var(--node-pt-size);
+    line-height: calc(var(--node-pt-size) * 1.5);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+  .cell-glyph{
+    z-index: -100;
+    float: left;
+    display: block;
+    text-align: center;
+    border-radius: 5pt;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    padding: 5pt;
+    margin: 5pt;
+    width: calc(var(--node-pt-size) * 2);
+    min-height: calc(var(--node-pt-size) * 2);
+    font-size: var(--node-pt-size);
+  }
+  .cell-glyph.font-before, .cell-word.font-before {
+    background: #eff6f2;
+  }
+  .cell-glyph.font-after, .cell-word.font-after {
+    background: #f7f4f4;
+  }
+
+  .cell-glyph:hover {
+    box-shadow: none;
+    background: #f0f0f5;
+  }
+  .cat-strings .cell {
+    clear: both;
+    position: static;
+    float: none;
+    text-align: left;
+  }
+  .codepoint {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 10pt;
+    line-height: 10pt;
+  }
+  .box-title {
+    clear: both;
+  }
+  .node.closed::before {
+    content: "+";
+    margin-right: 5pt;
+  }
+  .node.open::before {
+    content: "-";
+    margin-right: 5pt;
+  }
+
+  .tooltip pre {
+    background-color: #6f7882;
+    padding: 5px;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .tooltip {
+    line-height: 1em;
+  }
+  .tooltip-inner {
+    max-width: 300px;
+  }
+
+  h1,h2,h3,h4,h5 {
+    clear: both;
+  }
+
+  #locationnav li {
+    white-space: wrap;
+  }
+
+  #userdefined div { width: 100%; }
+  
+/* The following rules are used in the WASM version, not in the CLI version.
+   But we keep them here so we can share them between the two versions. */
+
+   .modal-dialog {
+    max-width: 100% !important;
+    margin: 0 !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+  }
+
+  .fontdrop {
+    padding: 30px;
+    border-radius: 20px;
+    outline: 3px dashed #ffffffff;
+    outline-offset: -20px;
+  }
+
+  #fontbefore {
+    background-color: #ddffdddd;
+  }
+
+  #fontafter {
+    background-color: #ffdddddd;
+  }
+
+  .dragging {
+    background-image: linear-gradient(rgb(0 0 0/5%) 0 0);
+    outline: 5px dashed #ffffffff;
+  }
+
+  #diffkerns {
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+		</style>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+		<div id="ui-nav">
+		  <div class="ui-nav-item" id="fonttoggle">Old</div>
+		  <div class="ui-nav-item" id="fontanimate">Animate</div>
+		  <div id="axes">
+		  </div>
+		</div>
+	
+	<div class="row">
+		<div class="col-2">
+			<ul class="nav nav-pills" id="locationnav">
+			</ul>
+		</div>
+		<div class="col-9 mt-3">
+			<div id="title"></div>
+			<div id="cmapdiff"> </div>
+			<div id="main"></div>
+			<div id="userdefined">
+				<h4>User defined sample text</h4>
+				<div contenteditable="true" class="font-before cell-word">
+					You can type your own text here to see it previewed in the fonts.
+				</div>
+				<div style="clear: both"></div>
+			</div>
+			<div id="diffkerns"> </div>
+			<div id="difftable"> </div>
+		</div>
+	</div>
+	<script type="module">
+		function renderTableDiff(node, toplevel) {
+  var wrapper = $("<div> </div>");
+  if (!node) {
+    return wrapper;
+  }
+  if (Array.isArray(node) && node.length == 2) {
+    var before = $("<span/>");
+    before.addClass("attr-before");
+    before.html(" " + node[0] + " ");
+    var after = $("<span/>");
+    after.addClass("attr-after");
+    after.append(renderTableDiff(node[1], true).children());
+    wrapper.append(before);
+    wrapper.append(after);
+    return wrapper;
+  }
+  if (node.constructor != Object) {
+    var thing = $("<span/>");
+    thing.html(node);
+    wrapper.append(thing);
+    return wrapper;
+  }
+  for (const [key, value] of Object.entries(node)) {
+    var display = $("<div/>");
+    display.addClass("node");
+    if (!toplevel) {
+      display.hide();
+    }
+    display.append(key);
+    display.append(renderTableDiff(value, false).children());
+    if (display.children(".node").length > 0) {
+      display.addClass("closed");
+    }
+    wrapper.append(display);
+  }
+  return wrapper;
+}
+
+function addAGlyph(glyph, where) {
+  let title = "";
+  if (glyph.name) {
+    title = "name: " + glyph.name;
+  }
+  let cp =
+    "<br>U+" +
+    glyph.string.codePointAt(0).toString(16).padStart(4, "0").toUpperCase();
+  where.append(`
+        <div class="cell-glyph font-before">
+        <div data-toggle="tooltip" data-html="true" data-title="${glyph.differing_pixels} pixels"> ${glyph.string}
+        <div class="codepoint" data-toggle="tooltip" data-html="true" data-title="${title}">
+		${cp}
+        </div>
+        </div>
+    `);
+}
+
+function addAWord(diff, where) {
+  if (!diff.buffer_b) {
+    diff.buffer_b = diff.buffer_a;
+  }
+  where.append(`
+		<div class="cell-word font-before">
+		<span data-toggle="tooltip" data-html="true" data-title="Before: <pre>${diff.buffer_a}</pre>After: <pre>${diff.buffer_b}</pre><br>difference: ${diff.differing_pixels} pixels">
+		${diff.word}
+		</span>
+		</div>
+	`);
+}
+
+function diffTables(report) {
+  $("#difftable").empty();
+  $("#difftable").append(`<h4 class="mt-2 box-title">Table-level details</h4>`);
+  $("#difftable").append(
+    renderTableDiff({ tables: report["tables"] }, true).children()
+  );
+  $("#difftable .node").on("click", function (e) {
+    $(this).toggleClass("closed open");
+    $(this).children(".node").toggle();
+    e.stopPropagation();
+  });
+}
+function diffKerns(report) {
+  $("#diffkerns").empty();
+  $("#diffkerns").append(`<h4 class="mt-2">Modified Kerns</h4>`);
+  $("#diffkerns").append(
+    `<table class="table table-striped" id="diffkerns"><tr><th>Pair</th><th>Old</old><th>New</th></table>`
+  );
+  for (let [pair, value] of Object.entries(report["kerns"])) {
+    if (pair == "error") {
+      $("#diffkerns").append(`<p class="text-danger">Error: ${value}</p>`);
+      continue;
+    } else {
+      let row = $("<tr>");
+      row.append(`<td>${pair}</td>`);
+      row.append(`<td>${serializeKernBefore(value)}</td>`);
+      row.append(`<td>${serializeKernAfter(value)}</td>`);
+      $("#diffkerns table").append(row);
+    }
+  }
+}
+
+function serializeKernBefore(kern) {
+  if (Array.isArray(kern)) {
+    return serializeKern(kern[0], -1);
+  }
+  return serializeKern(kern, 0);
+}
+
+function serializeKernAfter(kern) {
+  if (Array.isArray(kern)) {
+    return serializeKern(kern[1], -1);
+  }
+  return serializeKern(kern, 1);
+}
+
+function serializeKern(kern, index) {
+  let string = "";
+  if (kern === null || kern === undefined) {
+    return "(null)";
+  }
+  if (kern.x) {
+    string += serializeKernValue(kern.x, index);
+  } else if (kern.y) {
+    string = "0";
+  }
+
+  if (kern.y) {
+    string += "," + serializeKernValue(kern.y, index);
+  }
+  if (!kern.x_placement && !kern.y_placement) {
+    return string;
+  }
+  string += "@";
+  if (kern.x_placement) {
+    string += serializeKernValue(kern.x_placement, index);
+  } else if (kern.y_placement) {
+    string += "0";
+  }
+  if (kern.y_placement) {
+    string += "," + serializeKernValue(kern.y_placement, index);
+  }
+  return string;
+}
+
+function serializeKernValue(kern, index) {
+  if (typeof kern == "number") {
+    return kern;
+  }
+  let string = "(";
+  let verybig = Object.entries(kern).length > 5;
+  for (let [key, value] of Object.entries(kern)) {
+    if (key == "default") {
+      string += value[index] + " ";
+    } else {
+      string += value[index] + "@" + key + " ";
+    }
+    if (verybig) {
+      string += "<br>";
+    }
+  }
+  return string.trim() + ")";
+}
+
+function cmapDiff(report) {
+  if (report.cmap_diff && (report.cmap_diff.new || report.cmap_diff.missing)) {
+    $("#cmapdiff").append(
+      `<h4 class="mt-2">Added and Removed Encoded Glyphs</h4>`
+    );
+    if (report["cmap_diff"]["new"]) {
+      $("#cmapdiff").append(`<h4 class="box-title">Added Glyphs</h4>`);
+      let added = $("<div>");
+      for (let glyph of report["cmap_diff"]["new"]) {
+        addAGlyph(glyph, added);
+      }
+      $("#cmapdiff").append(added);
+    }
+
+    if (report["cmap_diff"]["missing"]) {
+      $("#cmapdiff").append(`<h4 class="box-title">Removed Glyphs</h4>`);
+      let missing = $("<div>");
+      for (let glyph of report["cmap_diff"]["missing"]) {
+        addAGlyph(glyph, missing);
+      }
+      $("#cmapdiff").append(missing);
+    }
+  } else {
+    $("#cmapdiff").append(`<p>No changes to encoded glyphs</p>`);
+  }
+}
+
+function setupAnimation() {
+  $("#fonttoggle").click(function () {
+    if ($(this).text() == "Old") {
+      $(this).text("New");
+      $(".font-before").removeClass("font-before").addClass("font-after");
+    } else {
+      $(this).text("Old");
+      $(".font-after").removeClass("font-after").addClass("font-before");
+    }
+  });
+
+  let animationHandle;
+  function animate() {
+    $("#fonttoggle").click();
+    animationHandle = setTimeout(animate, 1000);
+  }
+  $("#fontanimate").click(function () {
+    if ($(this).text() == "Animate") {
+      $(this).text("Stop");
+      animate();
+    } else {
+      $(this).text("Animate");
+      clearTimeout(animationHandle);
+    }
+  });
+}
+
+export {
+  renderTableDiff,
+  addAGlyph,
+  addAWord,
+  cmapDiff,
+  diffTables,
+  diffKerns,
+  setupAnimation,
+};
+
+	var report = {"tables":{"GSUB":{"script_list":[{"DFLT/dflt":{"lookups":[0,1]}},null],"feature_list":[{"vert":[0],"vrt2":[1]},null],"lookup_list":[{"0":[{"type":"single","uni3001":"uniFE11","uni3002":"uniFE12","uniFF01":"uniFE15","uniFF0C":"uniFE10","uniFF1A":"uniFE13","uniFF1B":"uniFE14","uniFF1F":"uniFE16"}],"1":[{"type":"single","uni3001":"uniFE11","uni3002":"uniFE12","uniFF01":"uniFE15","uniFF0C":"uniFE10","uniFF1A":"uniFE13","uniFF1B":"uniFE14","uniFF1F":"uniFE16"}]},null]},"OS/2":{"x_avg_char_width":[994,1000],"ul_unicode_range_1":[2147483651,3],"ul_unicode_range_2":[167837696,33554432],"ul_unicode_range_3":[18,0],"us_max_context":[1,0]},"cmap":{"error":"There are 7138 changes, check manually!"},"head":{"checksum_adjustment":[4097190728,3830096889],"modified":[3747733827,3813911426],"x_min":[-81,4],"y_min":[-278,-114],"x_max":[1012,1007],"y_max":[880,857]},"hhea":{"advance_width_max":[1022,1000],"min_left_side_bearing":[-81,4],"min_right_side_bearing":[-68,-7],"x_max_extent":[1012,1007],"caret_slope_rise":[1,1000],"number_of_long_metrics":[7142,6923]},"hmtx":{"error":"There are 7016 changes, check manually!"},"loca":{"offsets":{"error":"There are 7140 changes, check manually!"}},"maxp":{"num_glyphs":[7142,6923]},"post":{"num_glyphs":[7142,6923],"glyph_name_index":{"error":"There are 7140 changes, check manually!"}},"vhea":{"min_top_side_bearing":[-24,-1],"min_bottom_side_bearing":[-158,6],"y_max_extent":[1134,970],"number_of_long_ver_metrics":[7140,6921]},"vmtx":{"v_metrics":{"error":"There are 6736 changes, check manually!"}}},"cmap_diff":{"missing":[{"string":"。","name":"IDEOGRAPHIC FULL STOP"},{"string":"Ｌ","name":"FULLWIDTH LATIN CAPITAL LETTER L"},{"string":"w","name":"LATIN SMALL LETTER W"},{"string":"︕","name":"PRESENTATION FORM FOR VERTICAL EXCLAMATION MARK"},{"string":"t","name":"LATIN SMALL LETTER T"},{"string":"+","name":"PLUS SIGN"},{"string":"A","name":"LATIN CAPITAL LETTER A"},{"string":"⿺","name":"IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT"},{"string":"s","name":"LATIN SMALL LETTER S"},{"string":"＾","name":"FULLWIDTH CIRCUMFLEX ACCENT"},{"string":"C","name":"LATIN CAPITAL LETTER C"},{"string":"Ｒ","name":"FULLWIDTH LATIN CAPITAL LETTER R"},{"string":"l","name":"LATIN SMALL LETTER L"},{"string":"G","name":"LATIN CAPITAL LETTER G"},{"string":"｛","name":"FULLWIDTH LEFT CURLY BRACKET"},{"string":"(","name":"LEFT PARENTHESIS"},{"string":"：","name":"FULLWIDTH COLON"},{"string":"<","name":"LESS-THAN SIGN"},{"string":"u","name":"LATIN SMALL LETTER U"},{"string":"5","name":"DIGIT FIVE"},{"string":"＝","name":"FULLWIDTH EQUALS SIGN"},{"string":"︖","name":"PRESENTATION FORM FOR VERTICAL QUESTION MARK"},{"string":"?","name":"QUESTION MARK"},{"string":"～","name":"FULLWIDTH TILDE"},{"string":"e","name":"LATIN SMALL LETTER E"},{"string":"＞","name":"FULLWIDTH GREATER-THAN SIGN"},{"string":"？","name":"FULLWIDTH QUESTION MARK"},{"string":"|","name":"VERTICAL LINE"},{"string":"２","name":"FULLWIDTH DIGIT TWO"},{"string":"3","name":"DIGIT THREE"},{"string":"'","name":"APOSTROPHE"},{"string":"︒","name":"PRESENTATION FORM FOR VERTICAL IDEOGRAPHIC FULL STOP"},{"string":"^","name":"CIRCUMFLEX ACCENT"},{"string":"B","name":"LATIN CAPITAL LETTER B"},{"string":"Ｖ","name":"FULLWIDTH LATIN CAPITAL LETTER V"},{"string":"Q","name":"LATIN CAPITAL LETTER Q"},{"string":"＜","name":"FULLWIDTH LESS-THAN SIGN"},{"string":"︔","name":"PRESENTATION FORM FOR VERTICAL SEMICOLON"},{"string":":","name":"COLON"},{"string":"︐","name":"PRESENTATION FORM FOR VERTICAL COMMA"},{"string":";","name":"SEMICOLON"},{"string":"Ｔ","name":"FULLWIDTH LATIN CAPITAL LETTER T"},{"string":"（","name":"FULLWIDTH LEFT PARENTHESIS"},{"string":"o","name":"LATIN SMALL LETTER O"},{"string":"６","name":"FULLWIDTH DIGIT SIX"},{"string":"⿴","name":"IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND"},{"string":"7","name":"DIGIT SEVEN"},{"string":"４","name":"FULLWIDTH DIGIT FOUR"},{"string":"宋","name":"CJK UNIFIED IDEOGRAPH-5B8B"},{"string":"７","name":"FULLWIDTH DIGIT SEVEN"},{"string":"[","name":"LEFT SQUARE BRACKET"},{"string":"︓","name":"PRESENTATION FORM FOR VERTICAL COLON"},{"string":"１","name":"FULLWIDTH DIGIT ONE"},{"string":"X","name":"LATIN CAPITAL LETTER X"},{"string":"p","name":"LATIN SMALL LETTER P"},{"string":"*","name":"ASTERISK"},{"string":"\\","name":"REVERSE SOLIDUS"},{"string":"2","name":"DIGIT TWO"},{"string":"＊","name":"FULLWIDTH ASTERISK"},{"string":"ｇ","name":"FULLWIDTH LATIN SMALL LETTER G"},{"string":"I","name":"LATIN CAPITAL LETTER I"},{"string":"ｄ","name":"FULLWIDTH LATIN SMALL LETTER D"},{"string":"体","name":"CJK UNIFIED IDEOGRAPH-4F53"},{"string":">","name":"GREATER-THAN SIGN"},{"string":"％","name":"FULLWIDTH PERCENT SIGN"},{"string":"Ｉ","name":"FULLWIDTH LATIN CAPITAL LETTER I"},{"string":"ｌ","name":"FULLWIDTH LATIN SMALL LETTER L"},{"string":"{","name":"LEFT CURLY BRACKET"},{"string":"/","name":"SOLIDUS"},{"string":"V","name":"LATIN CAPITAL LETTER V"},{"string":"_","name":"LOW LINE"},{"string":"｝","name":"FULLWIDTH RIGHT CURLY BRACKET"},{"string":")","name":"RIGHT PARENTHESIS"},{"string":"W","name":"LATIN CAPITAL LETTER W"},{"string":"d","name":"LATIN SMALL LETTER D"},{"string":"$","name":"DOLLAR SIGN"},{"string":"ｙ","name":"FULLWIDTH LATIN SMALL LETTER Y"},{"string":"4","name":"DIGIT FOUR"},{"string":"ｂ","name":"FULLWIDTH LATIN SMALL LETTER B"},{"string":"）","name":"FULLWIDTH RIGHT PARENTHESIS"},{"string":"~","name":"TILDE"},{"string":"ｅ","name":"FULLWIDTH LATIN SMALL LETTER E"},{"string":"夏","name":"CJK UNIFIED IDEOGRAPH-590F"},{"string":"⿵","name":"IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE"},{"string":"@","name":"COMMERCIAL AT"},{"string":"Ｐ","name":"FULLWIDTH LATIN CAPITAL LETTER P"},{"string":"ｍ","name":"FULLWIDTH LATIN SMALL LETTER M"},{"string":"＠","name":"FULLWIDTH COMMERCIAL AT"},{"string":"ｐ","name":"FULLWIDTH LATIN SMALL LETTER P"},{"string":"＂","name":"FULLWIDTH QUOTATION MARK"},{"string":"j","name":"LATIN SMALL LETTER J"},{"string":"ｎ","name":"FULLWIDTH LATIN SMALL LETTER N"},{"string":"３","name":"FULLWIDTH DIGIT THREE"},{"string":"J","name":"LATIN CAPITAL LETTER J"},{"string":"m","name":"LATIN SMALL LETTER M"},{"string":"\"","name":"QUOTATION MARK"},{"string":"Ｃ","name":"FULLWIDTH LATIN CAPITAL LETTER C"},{"string":"⿳","name":"IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW"},{"string":"O","name":"LATIN CAPITAL LETTER O"},{"string":"ｑ","name":"FULLWIDTH LATIN SMALL LETTER Q"},{"string":"S","name":"LATIN CAPITAL LETTER S"},{"string":"ｃ","name":"FULLWIDTH LATIN SMALL LETTER C"},{"string":"Ｇ","name":"FULLWIDTH LATIN CAPITAL LETTER G"},{"string":"ｕ","name":"FULLWIDTH LATIN SMALL LETTER U"},{"string":"1","name":"DIGIT ONE"},{"string":"n","name":"LATIN SMALL LETTER N"},{"string":"v","name":"LATIN SMALL LETTER V"},{"string":"K","name":"LATIN CAPITAL LETTER K"},{"string":"Ｄ","name":"FULLWIDTH LATIN CAPITAL LETTER D"},{"string":"ｏ","name":"FULLWIDTH LATIN SMALL LETTER O"},{"string":"a","name":"LATIN SMALL LETTER A"},{"string":"ｘ","name":"FULLWIDTH LATIN SMALL LETTER X"},{"string":"ｋ","name":"FULLWIDTH LATIN SMALL LETTER K"},{"string":"Ｑ","name":"FULLWIDTH LATIN CAPITAL LETTER Q"},{"string":"［","name":"FULLWIDTH LEFT SQUARE BRACKET"},{"string":"，","name":"FULLWIDTH COMMA"},{"string":"!","name":"EXCLAMATION MARK"},{"string":"Ａ","name":"FULLWIDTH LATIN CAPITAL LETTER A"},{"string":"-","name":"HYPHEN-MINUS"},{"string":"Ｓ","name":"FULLWIDTH LATIN CAPITAL LETTER S"},{"string":"＋","name":"FULLWIDTH PLUS SIGN"},{"string":"i","name":"LATIN SMALL LETTER I"},{"string":" ","name":"EM SPACE"},{"string":"＆","name":"FULLWIDTH AMPERSAND"},{"string":"H","name":"LATIN CAPITAL LETTER H"},{"string":"＄","name":"FULLWIDTH DOLLAR SIGN"},{"string":"⿲","name":"IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT"},{"string":"Ｘ","name":"FULLWIDTH LATIN CAPITAL LETTER X"},{"string":"５","name":"FULLWIDTH DIGIT FIVE"},{"string":"Ｆ","name":"FULLWIDTH LATIN CAPITAL LETTER F"},{"string":"Ｈ","name":"FULLWIDTH LATIN CAPITAL LETTER H"},{"string":"z","name":"LATIN SMALL LETTER Z"},{"string":"Ｋ","name":"FULLWIDTH LATIN CAPITAL LETTER K"},{"string":"Ｎ","name":"FULLWIDTH LATIN CAPITAL LETTER N"},{"string":"⿰","name":"IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT"},{"string":"}","name":"RIGHT CURLY BRACKET"},{"string":"c","name":"LATIN SMALL LETTER C"},{"string":"｀","name":"FULLWIDTH GRAVE ACCENT"},{"string":"r","name":"LATIN SMALL LETTER R"},{"string":"U","name":"LATIN CAPITAL LETTER U"},{"string":"ｆ","name":"FULLWIDTH LATIN SMALL LETTER F"},{"string":"＃","name":"FULLWIDTH NUMBER SIGN"},{"string":"q","name":"LATIN SMALL LETTER Q"},{"string":"⿸","name":"IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT"},{"string":"０","name":"FULLWIDTH DIGIT ZERO"},{"string":"＼","name":"FULLWIDTH REVERSE SOLIDUS"},{"string":"⿶","name":"IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW"},{"string":"6","name":"DIGIT SIX"},{"string":"Z","name":"LATIN CAPITAL LETTER Z"},{"string":"⿱","name":"IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW"},{"string":"－","name":"FULLWIDTH HYPHEN-MINUS"},{"string":"西","name":"CJK UNIFIED IDEOGRAPH-897F"},{"string":"ｚ","name":"FULLWIDTH LATIN SMALL LETTER Z"},{"string":"9","name":"DIGIT NINE"},{"string":"]","name":"RIGHT SQUARE BRACKET"},{"string":"=","name":"EQUALS SIGN"},{"string":"x","name":"LATIN SMALL LETTER X"},{"string":"h","name":"LATIN SMALL LETTER H"},{"string":"P","name":"LATIN CAPITAL LETTER P"},{"string":"〾","name":"IDEOGRAPHIC VARIATION INDICATOR"},{"string":"D","name":"LATIN CAPITAL LETTER D"},{"string":"、","name":"IDEOGRAPHIC COMMA"},{"string":"ａ","name":"FULLWIDTH LATIN SMALL LETTER A"},{"string":"ｊ","name":"FULLWIDTH LATIN SMALL LETTER J"},{"string":"一","name":"CJK UNIFIED IDEOGRAPH-4E00"},{"string":"L","name":"LATIN CAPITAL LETTER L"},{"string":"Ｚ","name":"FULLWIDTH LATIN CAPITAL LETTER Z"},{"string":"ｔ","name":"FULLWIDTH LATIN SMALL LETTER T"},{"string":"．","name":"FULLWIDTH FULL STOP"},{"string":"f","name":"LATIN SMALL LETTER F"},{"string":".","name":"FULL STOP"},{"string":"b","name":"LATIN SMALL LETTER B"},{"string":" ","name":"EN SPACE"},{"string":"⿻","name":"IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID"},{"string":"！","name":"FULLWIDTH EXCLAMATION MARK"},{"string":"M","name":"LATIN CAPITAL LETTER M"},{"string":"Ｍ","name":"FULLWIDTH LATIN CAPITAL LETTER M"},{"string":"］","name":"FULLWIDTH RIGHT SQUARE BRACKET"},{"string":"8","name":"DIGIT EIGHT"},{"string":"y","name":"LATIN SMALL LETTER Y"},{"string":"⿷","name":"IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT"},{"string":"ｈ","name":"FULLWIDTH LATIN SMALL LETTER H"},{"string":"g","name":"LATIN SMALL LETTER G"},{"string":"ｉ","name":"FULLWIDTH LATIN SMALL LETTER I"},{"string":"｜","name":"FULLWIDTH VERTICAL LINE"},{"string":"F","name":"LATIN CAPITAL LETTER F"},{"string":"　","name":"IDEOGRAPHIC SPACE"},{"string":"T","name":"LATIN CAPITAL LETTER T"},{"string":"ｖ","name":"FULLWIDTH LATIN SMALL LETTER V"},{"string":"９","name":"FULLWIDTH DIGIT NINE"},{"string":"%","name":"PERCENT SIGN"},{"string":"Ｊ","name":"FULLWIDTH LATIN CAPITAL LETTER J"},{"string":"Ｏ","name":"FULLWIDTH LATIN CAPITAL LETTER O"},{"string":"E","name":"LATIN CAPITAL LETTER E"},{"string":"＇","name":"FULLWIDTH APOSTROPHE"},{"string":"0","name":"DIGIT ZERO"},{"string":"Ｕ","name":"FULLWIDTH LATIN CAPITAL LETTER U"},{"string":"ｒ","name":"FULLWIDTH LATIN SMALL LETTER R"},{"string":"ｓ","name":"FULLWIDTH LATIN SMALL LETTER S"},{"string":"８","name":"FULLWIDTH DIGIT EIGHT"},{"string":"&","name":"AMPERSAND"},{"string":"ｗ","name":"FULLWIDTH LATIN SMALL LETTER W"},{"string":"R","name":"LATIN CAPITAL LETTER R"},{"string":"k","name":"LATIN SMALL LETTER K"},{"string":"Y","name":"LATIN CAPITAL LETTER Y"},{"string":"`","name":"GRAVE ACCENT"},{"string":"Ｙ","name":"FULLWIDTH LATIN CAPITAL LETTER Y"},{"string":"；","name":"FULLWIDTH SEMICOLON"},{"string":"︑","name":"PRESENTATION FORM FOR VERTICAL IDEOGRAPHIC COMMA"},{"string":"⿹","name":"IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT"},{"string":",","name":"COMMA"},{"string":"Ｅ","name":"FULLWIDTH LATIN CAPITAL LETTER E"},{"string":"#","name":"NUMBER SIGN"},{"string":"N","name":"LATIN CAPITAL LETTER N"},{"string":"Ｗ","name":"FULLWIDTH LATIN CAPITAL LETTER W"},{"string":"＿","name":"FULLWIDTH LOW LINE"},{"string":"／","name":"FULLWIDTH SOLIDUS"},{"string":"Ｂ","name":"FULLWIDTH LATIN CAPITAL LETTER B"},{"string":"體","name":"CJK UNIFIED IDEOGRAPH-9AD4"}]},"locations":[{"location":"Default","glyphs":[{"string":"𗊤","name":"","unicode":"U+172A4","differing_pixels":329},{"string":"𗯓","name":"","unicode":"U+17BD3","differing_pixels":164},{"string":"𗯒","name":"","unicode":"U+17BD2","differing_pixels":116},{"string":"𘅱","name":"","unicode":"U+18171","differing_pixels":100},{"string":"𗄅","name":"","unicode":"U+17105","differing_pixels":76},{"string":"𗻹","name":"","unicode":"U+17EF9","differing_pixels":51},{"string":"𘄶","name":"","unicode":"U+18136","differing_pixels":50}],"words":{}}]};
+		function buildLocation_statichtml(loc) {
+  // Set font styles to appropriate axis locations
+  let rule = document.styleSheets[0].cssRules[2].style;
+  let cssSetting = "";
+  let textLocation = "Default";
+  if (loc.coords) {
+    cssSetting = Object.entries(loc.coords)
+      .map(function ([axis, value]) {
+        return `"${axis}" ${value}`;
+      })
+      .join(", ");
+    textLocation = Object.entries(loc.coords)
+      .map(function ([axis, value]) {
+        return `${axis}=${value}`;
+      })
+      .join(" ");
+    rule.setProperty("font-variation-settings", cssSetting);
+  }
+
+  $("#main").empty();
+
+  $("#title").html(`<h4 class="mt-2">${textLocation}</h2>`);
+
+  if (loc.glyphs) {
+    $("#main").append("<h4>Modified Glyphs</h4>");
+    let glyphs = $("<div>");
+    for (let glyph of loc.glyphs) {
+      addAGlyph(glyph, glyphs);
+    }
+    $("#main").append(glyphs);
+  }
+
+  if (loc.words) {
+    $("#main").append("<h4>Modified Words</h4>");
+    for (let [script, words] of Object.entries(loc.words)) {
+      let scriptTitle = $(`<h6>${script}</h6>`);
+      $("#main").append(scriptTitle);
+      let worddiv = $("<div>");
+      for (let word of words) {
+        addAWord(word, worddiv);
+      }
+      $("#main").append(worddiv);
+    }
+  }
+  $('[data-toggle="tooltip"]').tooltip();
+}
+
+$(function () {
+  if (report["tables"]) {
+    diffTables(report);
+  }
+  if (report["kerns"]) {
+    diffKerns(report);
+  }
+  cmapDiff(report);
+  $('[data-toggle="tooltip"]').tooltip();
+  if (!report["locations"]) {
+    $("#title").html("<h4 class='mt-2'>No differences found</h4>");
+    $("#ui-nav").hide();
+    return;
+  }
+
+  for (var [index, loc] of report["locations"].entries()) {
+    var loc_nav = $(`<li class="nav-item">
+		<a class="nav-link text-secondary" href="#" data-index="${index}">${loc.location.replaceAll(
+      ",",
+      ",\u200b"
+    )}</a>
+	</li>`);
+    $("#locationnav").append(loc_nav);
+  }
+  $("#locationnav li a").on("click", function (e) {
+    $("#locationnav li a").removeClass("active");
+    $(this).addClass("active");
+    buildLocation_statichtml(report.locations[$(this).data("index")]);
+  });
+  $("#locationnav li a").eq(0).click();
+
+  document.styleSheets[0].cssRules[0].style.setProperty(
+    "src",
+    "url(old-NotoSerifTangut-Regular.ttf)"
+  );
+  document.styleSheets[0].cssRules[1].style.setProperty(
+    "src",
+    "url(new-NotoSerifTangut-Regular.ttf)"
+  );
+  setupAnimation();
+});
+
+	</script>
+</body>
+
+</html>
