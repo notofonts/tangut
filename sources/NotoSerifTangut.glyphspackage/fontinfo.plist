@@ -7416,7 +7416,7 @@ value = GOOG;
 },
 {
 key = versionString;
-value = "Version 2.169";
+value = "Version 2.170";
 }
 );
 settings = {
@@ -7433,5 +7433,5 @@ name = vStem0;
 );
 unitsPerEm = 1000;
 versionMajor = 2;
-versionMinor = 169;
+versionMinor = 170;
 }
